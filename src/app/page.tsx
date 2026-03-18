@@ -1,5 +1,5 @@
 // This is the home page — the "theme hub" for A Triple Shy.
-// Each edition has one theme, and three hits: single (blog), double (photo), home run (song).
+// Each edition has one theme, and three hits: single (blog), double (photo), home run (song or video).
 // Replace the placeholder data below with real content when you're ready.
 
 const currentTheme = {
@@ -21,6 +21,7 @@ const currentTheme = {
     title: "\"Take Me Out to the Ball Game\" — reimagined",
     excerpt: "A folk cover of an American classic, recorded live.",
     href: "/home-run",
+    mediaType: "Song" as "Song" | "Video",
   },
 };
 
@@ -29,6 +30,7 @@ type Hit = {
   label: string;
   filledBases: number;
   totalBases: number;
+  mediaLabel: string;
   data: {
     title: string;
     excerpt: string;
@@ -42,6 +44,7 @@ const hits: Hit[] = [
     label: "Single",
     filledBases: 1,
     totalBases: 4,
+    mediaLabel: "Blog Post",
     data: currentTheme.single,
   },
   {
@@ -49,6 +52,7 @@ const hits: Hit[] = [
     label: "Double",
     filledBases: 2,
     totalBases: 4,
+    mediaLabel: "Photograph",
     data: currentTheme.double,
   },
   {
@@ -56,15 +60,10 @@ const hits: Hit[] = [
     label: "Home Run",
     filledBases: 4,
     totalBases: 4,
+    mediaLabel: currentTheme.homerun.mediaType,
     data: currentTheme.homerun,
   },
 ];
-
-const hitTypeEmoji: Record<Hit["type"], string> = {
-  single: "Blog Post",
-  double: "Photograph",
-  "home-run": "Song",
-};
 
 function BaseDiamond({ filled, total }: { filled: number; total: number }) {
   return (
@@ -84,7 +83,7 @@ function HitCard({ hit }: { hit: Hit }) {
         <span className="hit-type-label">{hit.label}</span>
       </div>
       <div className="hit-content">
-        <p className="hit-meta">{hitTypeEmoji[hit.type]}</p>
+        <p className="hit-meta">{hit.mediaLabel}</p>
         <h2 className="hit-title">{hit.data.title}</h2>
         <p className="hit-excerpt">{hit.data.excerpt}</p>
       </div>
