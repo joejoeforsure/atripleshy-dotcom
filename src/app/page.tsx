@@ -75,15 +75,47 @@ const hits: Hit[] = [
 ];
 
 // Bases in order around the diamond: 1B (right), 2B (top), 3B (left), HP (bottom)
-const BASE_POSITIONS = ["base-1b", "base-2b", "base-3b", "base-hp"] as const;
-
 function BaseDiamond({ filled }: { filled: number }) {
+  const S = 32;          // SVG canvas size
+  const c = S / 2;       // center point (16)
+  const r = 9;           // center → base center distance
+  const bs = 4.5;        // half-size of each base square (r = 2*bs so bases touch)
+
+  const bases: [number, number][] = [
+    [c + r, c],   // 1B — right
+    [c, c - r],   // 2B — top
+    [c - r, c],   // 3B — left
+    [c, c + r],   // HP — bottom
+  ];
+
+  const outlinePts = bases.map(([x, y]) => `${x},${y}`).join(" ");
+
   return (
-    <div className="diamond-field">
-      {BASE_POSITIONS.map((pos, i) => (
-        <div key={pos} className={`base ${pos}${i < filled ? " filled" : ""}`} />
+    <svg width="28" height="28" viewBox={`0 0 ${S} ${S}`} aria-hidden="true">
+      {/* Basepath outline */}
+      <polygon
+        points={outlinePts}
+        fill="none"
+        stroke="var(--border)"
+        strokeWidth="3"
+        strokeLinejoin="miter"
+      />
+      {/* Base squares — drawn on top of outline */}
+      {bases.map(([x, y], i) => (
+        <rect
+          key={i}
+          x={x - bs}
+          y={y - bs}
+          width={bs * 2}
+          height={bs * 2}
+          rx="0.5"
+          transform={`rotate(45 ${x} ${y})`}
+          fill={i < filled ? "var(--accent)" : "var(--card-bg)"}
+          stroke={i < filled ? "var(--accent)" : "var(--border)"}
+          strokeWidth="1.5"
+        />
       ))}
-    </div>
+    </svg>
   );
 }
 
