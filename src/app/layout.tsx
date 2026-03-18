@@ -16,9 +16,11 @@ export default function RootLayout({
       <body className="antialiased">
         <header className="site-header">
           <div className="container">
-            <a href="/" className="site-title">A Triple Shy</a>
-            <nav className="site-nav">
+            <div className="site-title-group">
+              <a href="/" className="site-title">A Triple Shy</a>
               <span className="site-tagline">one at-bat · three hits</span>
+            </div>
+            <nav className="site-nav">
               <a href="/previous-at-bats" className="site-nav-link">Previous At-Bats</a>
             </nav>
           </div>

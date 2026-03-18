@@ -62,6 +62,12 @@ body {
   padding-bottom: 1rem;
 }
 
+.site-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
