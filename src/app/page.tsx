@@ -74,11 +74,14 @@ const hits: Hit[] = [
   },
 ];
 
-function BaseDiamond({ filled, total }: { filled: number; total: number }) {
+// Bases in order around the diamond: 1B (right), 2B (top), 3B (left), HP (bottom)
+const BASE_POSITIONS = ["base-1b", "base-2b", "base-3b", "base-hp"] as const;
+
+function BaseDiamond({ filled }: { filled: number }) {
   return (
-    <div className="hit-bases">
-      {Array.from({ length: total }).map((_, i) => (
-        <div key={i} className={`base${i < filled ? " filled" : ""}`} />
+    <div className="diamond-field">
+      {BASE_POSITIONS.map((pos, i) => (
+        <div key={pos} className={`base ${pos}${i < filled ? " filled" : ""}`} />
       ))}
     </div>
   );
@@ -88,7 +91,7 @@ function HitCard({ hit }: { hit: Hit }) {
   return (
     <a href={hit.data.href} className="hit-card">
       <div className="hit-badge">
-        <BaseDiamond filled={hit.filledBases} total={hit.totalBases} />
+        <BaseDiamond filled={hit.filledBases} />
         <span className="hit-type-label">{hit.label}</span>
       </div>
       <div className="hit-content">

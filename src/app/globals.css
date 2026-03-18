@@ -1,24 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f9f6f1;
+  --bg: #f5f0e8;
   --fg: #1a1a1a;
   --muted: #6b6b6b;
-  --border: #e0dbd2;
-  --accent: #c0392b;
-  --card-bg: #ffffff;
+  --border: #ddd8ce;
+  --accent: #bf2b1e;
+  --card-bg: #fffdf9;
+  --header-bg: #1b2a1e;
+  --header-fg: #e8e0d0;
+  --header-muted: #7a9e7e;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111010;
+    --bg: #0f110e;
     --fg: #ede8e0;
-    --muted: #999;
-    --border: #2a2a2a;
+    --muted: #888;
+    --border: #262a24;
     --accent: #e05a4e;
-    --card-bg: #1a1917;
+    --card-bg: #161812;
+    --header-bg: #0d150f;
+    --header-fg: #e8e0d0;
+    --header-muted: #5a8a5e;
   }
 }
 
@@ -41,23 +47,27 @@ body {
   padding: 0 1.5rem;
 }
 
-/* ── Header ── */
+/* ── Header — scoreboard style ── */
 .site-header {
-  border-bottom: 1px solid var(--border);
-  padding: 1.25rem 0;
+  background: var(--header-bg);
+  padding: 0;
+  border-bottom: 3px solid var(--accent);
 }
 
 .site-header .container {
   display: flex;
-  align-items: baseline;
-  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .site-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--fg);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--header-fg);
   text-decoration: none;
 }
 
@@ -66,10 +76,11 @@ body {
 }
 
 .site-tagline {
-  font-size: 0.8rem;
-  color: var(--muted);
+  font-size: 0.72rem;
+  color: var(--header-muted);
   font-family: var(--font-mono), monospace;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* ── Main ── */
@@ -80,25 +91,42 @@ body {
 /* ── Theme intro ── */
 .theme-intro {
   margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+/* Baseball stitch divider */
+.theme-intro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background-image:
+    radial-gradient(circle, var(--accent) 1.5px, transparent 1.5px),
+    radial-gradient(circle, var(--accent) 1.5px, transparent 1.5px);
+  background-size: 24px 6px, 24px 6px;
+  background-position: 0 0, 12px 6px;
+  opacity: 0.35;
 }
 
 .theme-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-family: var(--font-mono), monospace;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 0.5rem;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+  font-weight: 600;
 }
 
 .theme-title {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2.6rem;
+  font-weight: 800;
   letter-spacing: -0.03em;
   margin: 0 0 0.75rem;
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .theme-description {
@@ -111,14 +139,15 @@ body {
 /* ── Hit cards ── */
 .hits-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .hit-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.75rem;
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 1.25rem;
@@ -129,27 +158,30 @@ body {
 }
 
 .hit-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left-color: var(--accent);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
 .hit-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  min-width: 3rem;
-  padding-top: 0.1rem;
+  gap: 0.4rem;
+  min-width: 3.5rem;
 }
 
-.hit-bases {
-  display: flex;
-  gap: 3px;
+/* Baseball diamond — 4 bases positioned at corners of a rotated square */
+.diamond-field {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
 }
 
 .base {
-  width: 8px;
-  height: 8px;
+  position: absolute;
+  width: 10px;
+  height: 10px;
   border: 1.5px solid var(--border);
   border-radius: 1px;
   transform: rotate(45deg);
@@ -161,13 +193,20 @@ body {
   border-color: var(--accent);
 }
 
+/* 1B: right  2B: top  3B: left  HP: bottom */
+.base-1b { top: 16px; right: 0; }
+.base-2b { top: 0;    left: 16px; }
+.base-3b { top: 16px; left: 0; }
+.base-hp { bottom: 0; left: 16px; }
+
 .hit-type-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-family: var(--font-mono), monospace;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .hit-content {}
@@ -188,24 +227,25 @@ body {
 }
 
 .hit-meta {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-family: var(--font-mono), monospace;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 0.4rem;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+  font-weight: 600;
 }
 
 .hit-title {
   font-size: 1.15rem;
-  font-weight: 600;
-  margin: 0 0 0.4rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
   letter-spacing: -0.01em;
-  line-height: 1.3;
+  line-height: 1.25;
 }
 
 .hit-excerpt {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin: 0;
   line-height: 1.5;
@@ -280,9 +320,11 @@ body {
 
 /* ── Footer ── */
 .site-footer {
-  border-top: 1px solid var(--border);
-  padding: 1.5rem 0;
-  font-size: 0.8rem;
-  color: var(--muted);
+  background: var(--header-bg);
+  border-top: 3px solid var(--accent);
+  padding: 1.25rem 0;
+  font-size: 0.75rem;
+  color: var(--header-muted);
   font-family: var(--font-mono), monospace;
+  letter-spacing: 0.05em;
 }
