@@ -7,9 +7,9 @@ export default function SinglePage() {
       <article className="prose-page">
         <header className="prose-header">
           <p className="theme-label">Single · Blog Post</p>
-          <h1 className="theme-title">What Spring Smells Like Before the First Pitch</h1>
+          <h1 className="theme-title">Everyone&rsquo;s a Genius in a Bull Market</h1>
           <p className="theme-description">
-            A short essay on anticipation — the particular feeling of a stadium filling up for the first time each year.
+            Leverage makes fools look brilliant — right up until it doesn&rsquo;t. An essay on the seductive logic of borrowing against tomorrow to win today.
           </p>
         </header>
         <div className="prose-body">
@@ -17,7 +17,7 @@ export default function SinglePage() {
             Your blog post goes here. Edit <code>src/app/single/page.tsx</code> to add your content.
           </p>
         </div>
-        <a href="/" className="back-link">← Back to theme</a>
+        <a href="/" className="back-link">← Back to current at-bat</a>
       </article>
     </div>
   );

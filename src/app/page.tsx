@@ -9,25 +9,25 @@ import Image from "next/image";
 
 const currentAtBat = {
   number: 1,
-  name: "The Great Hate of Florida",
+  name: "Margin Calls",
   description:
-    "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
+    "What happens when greed overrides better judgement — and how that moment of reckoning can bring down whole markets, and the people inside them.",
   single: {
-    title: "You Didn't Move Here to Be a Neighbor",
+    title: "Everyone's a Genius in a Bull Market",
     excerpt:
-      "Florida didn't go wrong because of hurricanes or heat. It went wrong because too many people arrived wanting the benefits of a place without any obligation to it.",
+      "Leverage makes fools look brilliant — right up until it doesn't. An essay on the seductive logic of borrowing against tomorrow to win today.",
     href: "/single",
     image: "/thumbs/single.svg",
   },
   double: {
-    title: "The View from the Gate",
-    excerpt: "A gated community in Sarasota County, photographed from the public road they fought to have narrowed.",
+    title: "The Floor After the Bell",
+    excerpt: "A trading floor photographed at 4:03 PM on a day nobody wanted to remember.",
     href: "/double",
     image: "/thumbs/double.svg",
   },
   homerun: {
-    title: "Sunshine State of Mind",
-    excerpt: "A song about arriving somewhere beautiful and making it a little worse.",
+    title: "Margin Call",
+    excerpt: "A song about the moment you find out the bet was too big.",
     href: "/home-run",
     mediaType: "Song" as "Song" | "Video",
     image: "/thumbs/homerun.svg",

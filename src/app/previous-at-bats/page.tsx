@@ -2,14 +2,13 @@
 // Add past at-bats to the list below in reverse chronological order.
 
 const pastAtBats = [
-  // Example entry — uncomment and fill in when you publish more:
-  // {
-  //   number: 1,
-  //   name: "The Great Hate of Florida",
-  //   description: "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
-  //   href: "/at-bat/1",
-  //   date: "March 2026",
-  // },
+  {
+    number: 1,
+    name: "The Great Hate of Florida",
+    description: "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
+    href: "/at-bat/1",
+    date: "March 2026",
+  },
 ] as {
   number: number;
   name: string;

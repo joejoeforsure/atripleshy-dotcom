@@ -7,8 +7,8 @@ export default function HomeRunPage() {
       <article className="prose-page">
         <header className="prose-header">
           <p className="theme-label">Home Run · Song</p>
-          <h1 className="theme-title">&ldquo;Take Me Out to the Ball Game&rdquo; — reimagined</h1>
-          <p className="theme-description">A folk cover of an American classic, recorded live.</p>
+          <h1 className="theme-title">Margin Call</h1>
+          <p className="theme-description">A song about the moment you find out the bet was too big.</p>
         </header>
         <div className="audio-placeholder">
           <p>Add your song here. Edit <code>src/app/home-run/page.tsx</code>.</p>
@@ -17,7 +17,7 @@ export default function HomeRunPage() {
             <code>&lt;audio&gt;</code> element, or link to a streaming platform.
           </p>
         </div>
-        <a href="/" className="back-link">← Back to theme</a>
+        <a href="/" className="back-link">← Back to current at-bat</a>
       </article>
     </div>
   );
