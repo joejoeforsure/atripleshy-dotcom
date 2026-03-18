@@ -1,21 +1,4 @@
-// Previous At-Bats — archive page
-// Add past at-bats to the list below in reverse chronological order.
-
-const pastAtBats = [
-  {
-    number: 1,
-    name: "The Great Hate of Florida",
-    description: "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
-    href: "/at-bat/1",
-    date: "March 2026",
-  },
-] as {
-  number: number;
-  name: string;
-  description: string;
-  href: string;
-  date: string;
-}[];
+import { pastAtBats } from "@/lib/at-bats";
 
 export default function PreviousAtBats() {
   return (
@@ -34,7 +17,7 @@ export default function PreviousAtBats() {
         <ol className="archive-list">
           {pastAtBats.map((atBat) => (
             <li key={atBat.number} className="archive-item">
-              <a href={atBat.href} className="archive-link">
+              <a href={`/at-bat/${atBat.number}`} className="archive-link">
                 <span className="archive-number">#{atBat.number}</span>
                 <div className="archive-body">
                   <h2 className="archive-name">{atBat.name}</h2>
