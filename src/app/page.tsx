@@ -3,23 +3,23 @@
 // Replace the placeholder data below with real content when you're ready.
 
 const currentTheme = {
-  name: "Opening Day",
+  name: "The Great Hate of Florida",
   description:
-    "The smell of fresh-cut grass, the crack of a bat, the start of something new. Every season begins with hope.",
+    "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
   single: {
-    title: "What Spring Smells Like Before the First Pitch",
+    title: "You Didn't Move Here to Be a Neighbor",
     excerpt:
-      "A short essay on anticipation — the particular feeling of a stadium filling up for the first time each year.",
+      "Florida didn't go wrong because of hurricanes or heat. It went wrong because too many people arrived wanting the benefits of a place without any obligation to it.",
     href: "/single",
   },
   double: {
-    title: "Empty Bleachers, 7am",
-    excerpt: "A photograph taken before the crowds arrived.",
+    title: "The View from the Gate",
+    excerpt: "A gated community in Sarasota County, photographed from the public road they fought to have narrowed.",
     href: "/double",
   },
   homerun: {
-    title: "\"Take Me Out to the Ball Game\" — reimagined",
-    excerpt: "A folk cover of an American classic, recorded live.",
+    title: "Sunshine State of Mind",
+    excerpt: "A song about arriving somewhere beautiful and making it a little worse.",
     href: "/home-run",
     mediaType: "Song" as "Song" | "Video",
   },
