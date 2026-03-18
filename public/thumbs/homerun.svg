@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160">
+  <rect width="240" height="160" fill="#2a2420"/>
+  <!-- vinyl record suggestion -->
+  <circle cx="120" cy="80" r="60" fill="#1a1614"/>
+  <circle cx="120" cy="80" r="55" fill="#221e1b"/>
+  <!-- grooves -->
+  <circle cx="120" cy="80" r="48" fill="none" stroke="#2e2926" stroke-width="1.5"/>
+  <circle cx="120" cy="80" r="40" fill="none" stroke="#2e2926" stroke-width="1.5"/>
+  <circle cx="120" cy="80" r="32" fill="none" stroke="#2e2926" stroke-width="1.5"/>
+  <!-- label -->
+  <circle cx="120" cy="80" r="20" fill="#c0392b"/>
+  <circle cx="120" cy="80" r="4" fill="#1a1614"/>
+  <rect x="100" y="75" width="40" height="3" rx="1" fill="#e8d5d5" opacity="0.5"/>
+  <rect x="106" y="82" width="28" height="3" rx="1" fill="#e8d5d5" opacity="0.3"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160">
+  <rect width="240" height="160" fill="#b8c4c2"/>
+  <!-- sky -->
+  <rect width="240" height="90" fill="#8fa8a6"/>
+  <!-- ground -->
+  <rect y="90" width="240" height="70" fill="#7a8f7d"/>
+  <!-- gate/fence suggestion -->
+  <rect x="0" y="70" width="240" height="6" fill="#4a5a4e" opacity="0.6"/>
+  <rect x="30" y="50" width="4" height="26" fill="#4a5a4e" opacity="0.6"/>
+  <rect x="70" y="50" width="4" height="26" fill="#4a5a4e" opacity="0.6"/>
+  <rect x="110" y="50" width="4" height="26" fill="#4a5a4e" opacity="0.6"/>
+  <rect x="150" y="50" width="4" height="26" fill="#4a5a4e" opacity="0.6"/>
+  <rect x="190" y="50" width="4" height="26" fill="#4a5a4e" opacity="0.6"/>
+  <!-- sun -->
+  <circle cx="190" cy="30" r="14" fill="#e8d5a0" opacity="0.7"/>
+</svg>
