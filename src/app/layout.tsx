@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "A Triple Shy",
-  description: "A blog post, a photograph, and a song — grouped around a theme.",
+  description: "A blog post, a photograph, and a song — grouped around an at-bat.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,10 @@ export default function RootLayout({
         <header className="site-header">
           <div className="container">
             <a href="/" className="site-title">A Triple Shy</a>
-            <span className="site-tagline">one theme · three hits</span>
+            <nav className="site-nav">
+              <span className="site-tagline">one at-bat · three hits</span>
+              <a href="/previous-at-bats" className="site-nav-link">Previous At-Bats</a>
+            </nav>
           </div>
         </header>
         <main className="site-main">

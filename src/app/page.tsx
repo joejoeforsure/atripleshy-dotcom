@@ -1,5 +1,5 @@
-// This is the home page — the "theme hub" for A Triple Shy.
-// Each edition has one theme, and three hits: single (blog), double (photo), home run (song or video).
+// This is the home page — the current at-bat for A Triple Shy.
+// Each at-bat has three hits: single (blog), double (photo), home run (song or video).
 // Replace the placeholder data below with real content when you're ready.
 //
 // Thumbnails: drop image files into public/thumbs/ and set the image field below.
@@ -7,7 +7,8 @@
 
 import Image from "next/image";
 
-const currentTheme = {
+const currentAtBat = {
+  number: 1,
   name: "The Great Hate of Florida",
   description:
     "How a culture of \"me first\" and a flood of retiring boomers aren't saving the Sunshine State — they're hollowing it out.",
@@ -31,13 +32,15 @@ const currentTheme = {
     mediaType: "Song" as "Song" | "Video",
     image: "/thumbs/homerun.svg",
   },
+  // Navigation — set these once you publish more at-bats
+  prev: null as { name: string; href: string } | null,
+  next: null as { name: string; href: string } | null,
 };
 
 type Hit = {
   type: "single" | "double" | "home-run";
   label: string;
   filledBases: number;
-  totalBases: number;
   mediaLabel: string;
   data: {
     title: string;
@@ -52,47 +55,43 @@ const hits: Hit[] = [
     type: "single",
     label: "Single",
     filledBases: 1,
-    totalBases: 4,
     mediaLabel: "Blog Post",
-    data: currentTheme.single,
+    data: currentAtBat.single,
   },
   {
     type: "double",
     label: "Double",
     filledBases: 2,
-    totalBases: 4,
     mediaLabel: "Photograph",
-    data: currentTheme.double,
+    data: currentAtBat.double,
   },
   {
     type: "home-run",
     label: "Home Run",
     filledBases: 4,
-    totalBases: 4,
-    mediaLabel: currentTheme.homerun.mediaType,
-    data: currentTheme.homerun,
+    mediaLabel: currentAtBat.homerun.mediaType,
+    data: currentAtBat.homerun,
   },
 ];
 
 // Bases in order around the diamond: 1B (right), 2B (top), 3B (left), HP (bottom)
 function BaseDiamond({ filled }: { filled: number }) {
-  const S = 32;          // SVG canvas size
-  const c = S / 2;       // center point (16)
-  const r = 9;           // center → base center distance
-  const bs = 4.5;        // half-size of each base square (r = 2*bs so bases touch)
+  const S = 32;
+  const c = S / 2;
+  const r = 9;
+  const bs = 4.5;
 
   const bases: [number, number][] = [
-    [c + r, c],   // 1B — right
-    [c, c - r],   // 2B — top
-    [c - r, c],   // 3B — left
-    [c, c + r],   // HP — bottom
+    [c + r, c],
+    [c, c - r],
+    [c - r, c],
+    [c, c + r],
   ];
 
   const outlinePts = bases.map(([x, y]) => `${x},${y}`).join(" ");
 
   return (
     <svg width="28" height="28" viewBox={`0 0 ${S} ${S}`} aria-hidden="true">
-      {/* Basepath outline */}
       <polygon
         points={outlinePts}
         fill="none"
@@ -100,7 +99,6 @@ function BaseDiamond({ filled }: { filled: number }) {
         strokeWidth="3"
         strokeLinejoin="miter"
       />
-      {/* Base squares — drawn on top of outline */}
       {bases.map(([x, y], i) => (
         <rect
           key={i}
@@ -150,9 +148,9 @@ export default function Home() {
   return (
     <div className="container">
       <section className="theme-intro">
-        <p className="theme-label">Current Theme</p>
-        <h1 className="theme-title">{currentTheme.name}</h1>
-        <p className="theme-description">{currentTheme.description}</p>
+        <p className="theme-label">Current At-Bat</p>
+        <h1 className="theme-title">{currentAtBat.name}</h1>
+        <p className="theme-description">{currentAtBat.description}</p>
       </section>
 
       <div className="hits-grid">
@@ -160,6 +158,28 @@ export default function Home() {
           <HitCard key={hit.type} hit={hit} />
         ))}
       </div>
+
+      <nav className="at-bat-nav">
+        <div className="at-bat-nav-prev">
+          {currentAtBat.prev ? (
+            <a href={currentAtBat.prev.href} className="at-bat-nav-link">
+              <span className="at-bat-nav-direction">← Previous At-Bat</span>
+              <span className="at-bat-nav-name">{currentAtBat.prev.name}</span>
+            </a>
+          ) : (
+            <span className="at-bat-nav-empty">This is the first at-bat.</span>
+          )}
+        </div>
+        <a href="/previous-at-bats" className="at-bat-nav-archive">All At-Bats</a>
+        <div className="at-bat-nav-next">
+          {currentAtBat.next && (
+            <a href={currentAtBat.next.href} className="at-bat-nav-link at-bat-nav-link--right">
+              <span className="at-bat-nav-direction">Next At-Bat →</span>
+              <span className="at-bat-nav-name">{currentAtBat.next.name}</span>
+            </a>
+          )}
+        </div>
+      </nav>
     </div>
   );
 }

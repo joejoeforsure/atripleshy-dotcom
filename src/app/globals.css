@@ -62,6 +62,26 @@ body {
   padding-bottom: 1rem;
 }
 
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav-link {
+  font-size: 0.72rem;
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--header-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.site-nav-link:hover {
+  color: var(--header-fg);
+}
+
 .site-title {
   font-size: 1.4rem;
   font-weight: 800;
@@ -234,6 +254,142 @@ body {
 .hit-card.empty .hit-title {
   font-style: italic;
   color: var(--muted);
+}
+
+/* ── At-bat prev/next nav ── */
+.at-bat-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.at-bat-nav-prev { text-align: left; }
+.at-bat-nav-next { text-align: right; }
+
+.at-bat-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.at-bat-nav-link--right {
+  align-items: flex-end;
+}
+
+.at-bat-nav-direction {
+  font-size: 0.68rem;
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.at-bat-nav-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.at-bat-nav-link:hover .at-bat-nav-name {
+  color: var(--accent);
+}
+
+.at-bat-nav-empty {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+}
+
+.at-bat-nav-archive {
+  font-size: 0.68rem;
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.at-bat-nav-archive:hover {
+  color: var(--accent);
+}
+
+/* ── Archive page ── */
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.archive-item {}
+
+.archive-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.archive-link:hover {
+  border-left-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.archive-number {
+  font-size: 0.75rem;
+  font-family: var(--font-mono), monospace;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  min-width: 2rem;
+}
+
+.archive-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.archive-description {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.archive-date {
+  font-size: 0.7rem;
+  font-family: var(--font-mono), monospace;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.archive-empty {
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.875rem;
+}
+
+.archive-back {
+  margin-top: 2.5rem;
 }
 
 /* ── Inner pages ── */
