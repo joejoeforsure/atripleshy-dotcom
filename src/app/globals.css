@@ -171,21 +171,34 @@ body {
 }
 
 /* Baseball diamond — 4 bases positioned at corners of a rotated square */
+/* Scorebug-style diamond: tight basepath outline with 4 base squares */
 .diamond-field {
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
+}
+
+/* Basepath lines — a rotated square forming the diamond outline */
+.diamond-field::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1.5px solid var(--border);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  opacity: 0.5;
 }
 
 .base {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border: 1.5px solid var(--border);
   border-radius: 1px;
   transform: rotate(45deg);
-  background: transparent;
+  background: var(--bg);
+  z-index: 1;
 }
 
 .base.filled {
@@ -194,10 +207,10 @@ body {
 }
 
 /* 1B: right  2B: top  3B: left  HP: bottom */
-.base-1b { top: 16px; right: 0; }
-.base-2b { top: 0;    left: 16px; }
-.base-3b { top: 16px; left: 0; }
-.base-hp { bottom: 0; left: 16px; }
+.base-1b { top: 10px; right: 0; }
+.base-2b { top: 0;    left: 10px; }
+.base-3b { top: 10px; left: 0; }
+.base-hp { bottom: 0; left: 10px; }
 
 .hit-type-label {
   font-size: 0.6rem;
